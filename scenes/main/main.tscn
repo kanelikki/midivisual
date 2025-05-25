@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx4w2bwmvlqm5"]
+
+[ext_resource type="PackedScene" uid="uid://qkrjfu0s4hts" path="res://scenes/piano/piano_full/piano_full.tscn" id="1_hyk8p"]
+[ext_resource type="Texture2D" uid="uid://de2xeulxrtsfc" path="res://test.jpg" id="1_iuonh"]
+[ext_resource type="Script" uid="uid://b5kiip830r3l" path="res://addons/midi/MidiPlayer.gd" id="3_k2fmo"]
+
+[node name="Main" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.257107, 0.0947978, 0.524234, 1)
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -507.0
+offset_top = -1029.0
+offset_right = 452.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iuonh")
+expand_mode = 3
+
+[node name="PianoFull" parent="." instance=ExtResource("1_hyk8p")]
+right_trackname = "Piano"
+
+[node name="MidiPlayer" type="Node" parent="."]
+script = ExtResource("3_k2fmo")
+file = "res://music/catwalk-etude-dynamic.mid"
+metadata/_custom_type_script = "uid://b5kiip830r3l"
+
+[node name="MidiPlayer2" type="Node" parent="."]
+script = ExtResource("3_k2fmo")
+file = "res://music/catwalk-etude-dynamic.mid"
+soundfont = "res://music/sf2/YDP-GrandPiano-20160804.sf2"
+metadata/_custom_type_script = "uid://b5kiip830r3l"
+
+[connection signal="midi_event" from="MidiPlayer" to="PianoFull" method="_on_midi_player_midi_event"]

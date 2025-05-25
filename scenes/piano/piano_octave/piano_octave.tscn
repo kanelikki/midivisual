@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://csbfdao5job0c"]
+
+[ext_resource type="Script" uid="uid://detwata7mww0o" path="res://scripts/piano_octave.gd" id="1_fkja2"]
+[ext_resource type="PackedScene" uid="uid://doft7cwmewk6i" path="res://resources/white.tscn" id="1_r3k2i"]
+[ext_resource type="PackedScene" uid="uid://8taxxlbnt3em" path="res://resources/black.tscn" id="2_fkja2"]
+
+[node name="PianoOctave" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_right = 384.0
+offset_bottom = -1080.0
+grow_vertical = 0
+size_flags_horizontal = 3
+script = ExtResource("1_fkja2")
+
+[node name="Whites" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="White1" parent="Whites" instance=ExtResource("1_r3k2i")]
+layout_mode = 2
+
+[node name="White2" parent="Whites" instance=ExtResource("1_r3k2i")]
+layout_mode = 2
+
+[node name="White3" parent="Whites" instance=ExtResource("1_r3k2i")]
+layout_mode = 2
+
+[node name="White4" parent="Whites" instance=ExtResource("1_r3k2i")]
+layout_mode = 2
+
+[node name="White5" parent="Whites" instance=ExtResource("1_r3k2i")]
+layout_mode = 2
+
+[node name="White6" parent="Whites" instance=ExtResource("1_r3k2i")]
+layout_mode = 2
+
+[node name="White7" parent="Whites" instance=ExtResource("1_r3k2i")]
+layout_mode = 2
+
+[node name="Blacks" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="B1" type="HBoxContainer" parent="Blacks"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Control2" type="Control" parent="Blacks/B1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Black1" parent="Blacks/B1" instance=ExtResource("2_fkja2")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Blacks/B1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Black2" parent="Blacks/B1" instance=ExtResource("2_fkja2")]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="Blacks/B1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="B2" type="HBoxContainer" parent="Blacks"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+alignment = 1
+
+[node name="Control2" type="Control" parent="Blacks/B2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Black3" parent="Blacks/B2" instance=ExtResource("2_fkja2")]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="Blacks/B2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Black4" parent="Blacks/B2" instance=ExtResource("2_fkja2")]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="Blacks/B2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Black5" parent="Blacks/B2" instance=ExtResource("2_fkja2")]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="Blacks/B2"]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://8taxxlbnt3em"]
+
+[ext_resource type="Script" uid="uid://circt6jiimj8g" path="res://scripts/key.gd" id="1_jhkwy"]
+[ext_resource type="Texture2D" uid="uid://dw36uhhpuffla" path="res://images/pianoroll-black.svg" id="2_3jvii"]
+[ext_resource type="Material" uid="uid://bp4dwudnfqceh" path="res://resources/processmaterial2.tres" id="2_wsbbp"]
+[ext_resource type="PackedScene" uid="uid://j3860fvjjoj" path="res://resources/drop.tscn" id="4_wsbbp"]
+[ext_resource type="Shader" uid="uid://dkdkccicugepi" path="res://resources/spotlight.gdshader" id="5_jucc2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52qfh"]
+shader = ExtResource("5_jucc2")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jhkwy"]
+blend_mode = 1
+
+[node name="Black1" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_bottom = -1080.0
+grow_vertical = 0
+size_flags_horizontal = 3
+script = ExtResource("1_jhkwy")
+press_color_l = Color(0.0994238, 0.235542, 0.405319, 1)
+press_color_r = Color(0.294342, 0.221071, 0.556659, 1)
+press_spotlight_l = Color(0, 0.82569, 0.913157, 1)
+press_spotlight_r = Color(0.999793, 0.564504, 0.665602, 1)
+
+[node name="Drop" parent="." instance=ExtResource("4_wsbbp")]
+modulate = Color(0.4, 0.811765, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -28.0
+offset_right = 28.0
+offset_bottom = 40.0
+grow_vertical = 1
+
+[node name="Piano" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 812.0
+offset_right = 40.0
+offset_bottom = 852.0
+
+[node name="ColorRect" type="ColorRect" parent="Piano"]
+visible = false
+material = SubResource("ShaderMaterial_52qfh")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -240.0
+offset_right = -4.0
+grow_horizontal = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Piano"]
+material = SubResource("CanvasItemMaterial_jhkwy")
+position = Vector2(18.279, 0)
+emitting = false
+amount = 50
+trail_lifetime = 0.1
+process_material = ExtResource("2_wsbbp")
+
+[node name="Sprite2D" type="TextureRect" parent="Piano"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 16.558
+offset_bottom = 180.0
+grow_horizontal = 2
+texture = ExtResource("2_3jvii")
+expand_mode = 3
+stretch_mode = 4

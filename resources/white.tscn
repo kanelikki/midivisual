@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://doft7cwmewk6i"]
+
+[ext_resource type="Script" uid="uid://circt6jiimj8g" path="res://scripts/key.gd" id="1_jq6tu"]
+[ext_resource type="Texture2D" uid="uid://db28rpo5mv3d1" path="res://images/pianoroll-white.svg" id="2_h2y1o"]
+[ext_resource type="Material" uid="uid://dhedewyg1orqp" path="res://resources/processmaterial.tres" id="2_j7dhi"]
+[ext_resource type="Shader" uid="uid://dkdkccicugepi" path="res://resources/spotlight.gdshader" id="3_x80n1"]
+[ext_resource type="PackedScene" uid="uid://j3860fvjjoj" path="res://resources/drop.tscn" id="4_j7dhi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jlybk"]
+shader = ExtResource("3_x80n1")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jq6tu"]
+blend_mode = 1
+
+[node name="White1" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_bottom = -1080.0
+grow_vertical = 0
+size_flags_horizontal = 3
+script = ExtResource("1_jq6tu")
+press_color_l = Color(0.571219, 0.686814, 0.920343, 1)
+press_color_r = Color(0.82614, 0.451917, 0.944402, 1)
+press_spotlight_l = Color(1.92523e-07, 0.75556, 0.692015, 1)
+press_spotlight_r = Color(1, 0.541957, 0.644749, 1)
+
+[node name="Drop" parent="." instance=ExtResource("4_j7dhi")]
+modulate = Color(0.682874, 0.575103, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -34.0
+offset_right = 34.0
+offset_bottom = 40.0
+grow_vertical = 1
+
+[node name="Piano" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 812.0
+offset_bottom = 812.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="Piano"]
+visible = false
+material = SubResource("ShaderMaterial_jlybk")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = -200.0
+offset_right = 26.0
+grow_horizontal = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Piano"]
+material = SubResource("CanvasItemMaterial_jq6tu")
+position = Vector2(27.425, 0)
+emitting = false
+amount = 50
+process_material = ExtResource("2_j7dhi")
+
+[node name="Sprite2D" type="TextureRect" parent="Piano"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.425
+offset_right = 27.425
+offset_bottom = 268.0
+grow_horizontal = 2
+texture = ExtResource("2_h2y1o")
+expand_mode = 3

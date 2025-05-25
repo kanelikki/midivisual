@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://qkrjfu0s4hts"]
+
+[ext_resource type="Script" uid="uid://camdu2rbl3ims" path="res://scripts/piano_full.gd" id="1_n5rtb"]
+[ext_resource type="PackedScene" uid="uid://csbfdao5job0c" path="res://scenes/piano/piano_octave/piano_octave.tscn" id="1_upe6d"]
+
+[node name="PianoFull" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_n5rtb")
+left_color = Color(0.167633, 0.55722, 1, 1)
+right_color = Color(0.89279, 0.555394, 1, 1)
+
+[node name="Piano" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="Octave1" parent="Piano" instance=ExtResource("1_upe6d")]
+layout_mode = 2
+
+[node name="Octave2" parent="Piano" instance=ExtResource("1_upe6d")]
+layout_mode = 2
+
+[node name="Octave3" parent="Piano" instance=ExtResource("1_upe6d")]
+layout_mode = 2
+
+[node name="Octave4" parent="Piano" instance=ExtResource("1_upe6d")]
+layout_mode = 2
+
+[node name="Octave5" parent="Piano" instance=ExtResource("1_upe6d")]
+layout_mode = 2

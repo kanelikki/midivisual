@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://j3860fvjjoj"]
+
+[ext_resource type="Texture2D" uid="uid://dnk3rjkxax7fj" path="res://images/pianoroll-white-drop.svg" id="1_4yhmw"]
+[ext_resource type="Shader" uid="uid://efk08wvl1q67" path="res://resources/glow.gdshader" id="1_vdy1g"]
+[ext_resource type="Script" uid="uid://b8xo8n56wlmc2" path="res://scripts/drop.gd" id="2_idh4j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1oy7"]
+shader = ExtResource("1_vdy1g")
+shader_parameter/rect_size = Vector2(0.1, 0.1)
+shader_parameter/bness = 1.0
+shader_parameter/fall_off_scale = 3.0
+shader_parameter/b_offset = 0.0
+
+[node name="Drop" type="NinePatchRect"]
+visible = false
+z_index = -1
+material = SubResource("ShaderMaterial_x1oy7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4yhmw")
+region_rect = Rect2(-8, -8, 71, 71)
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+script = ExtResource("2_idh4j")
+drop_color_l = Color(0.439816, 0.825156, 1, 1)
+drop_color_r = Color(0.977481, 0.617106, 1, 1)
